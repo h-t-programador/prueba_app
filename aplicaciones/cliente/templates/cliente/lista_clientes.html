@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Clientes | Lista {% endblock %}
+
+{% block EnlacesPlantilla_Base_CSS %}
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{% static 'principal/plugins/fontawesome-free/css/all.min.css' %}">
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static 'principal/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'principal/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'principal/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{% static 'principal/dist/css/adminlte.min.css' %}">
+
+
+{% endblock %}
+
+{% block IconoRecargaPagina %}
+            <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+{% endblock %}
+
+
+{% block menu_superior %}
+      <!--Aqui se incluye el menu superior-->
+      {% include "menu_superior.html" %} 
+{% endblock %}
+
+{% block menulateral %}
+      <!--Aqui se incluye el menu lateral-->
+      {% include "menu_lateral.html" %}
+{% endblock %}
+
+{% block tituloCabecera %}
+    <!--Aqui se incluye el menu lateral-->
+    Clientes Actuales
+{% endblock %}
+
+{% block caja1_Opcional %}
+            
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        
+        <!-- /.card -->
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Lista de Clientes</h3>
+            
+          
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Cliente(Razon social)</th>
+                <th>Rut</th>
+                <th>Direccion</th>
+                <th>Contacto</th>
+                <th>Correo Electronico</th>
+                <th></th>
+                
+              </tr>
+              </thead>
+              <tbody>
+                {% for cliente in listaClientes %}
+
+                <tr>
+                  <td>{{cliente.razon_social}}</td>
+                  <td>{{cliente.rut}}</td>
+                  <td>{{cliente.direccion}}</td>
+                  <td>{{cliente.contacto}}</td>
+                  <td>{{cliente.correo}}</td>
+                  <td>...</td>
+                </tr>
+
+                {% endfor %}
+              
+              </tbody>
+              <!--
+              <tfoot>
+              <tr>
+                <th>Rendering engine</th>
+                <th>Browser</th>
+                <th>Platform(s)</th>
+                <th>Engine version</th>
+                <th>CSS grade</th>
+              </tr>
+              </tfoot>
+              -->
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+            
+          
+{% endblock %}
+
+
+{% block caja2_Opcional %}
+        
+          
+        
+{% endblock %}
+
+
+
+{% block EnlacesPlantilla_Base_JS %}
+
+
+    <!-- jQuery -->
+    <script src="{% static 'principal/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'principal/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- DataTables  & Plugins -->
+<script src="{% static 'principal/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'principal/plugins/jszip/jszip.min.js' %}"></script>
+<script src="{% static 'principal/plugins/pdfmake/pdfmake.min.js' %}"></script>
+<script src="{% static 'principal/plugins/pdfmake/vfs_fonts.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'principal/plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'principal/dist/js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'principal/dist/js/demo.js' %}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block titulo %}Inicio {% endblock %}
+
+
+{% block menu_superior %}
+      <!--Aqui se incluye el menu superior-->
+      {% include "menu_superior.html" %}
+{% endblock %}
+
+{% block menulateral %}
+      <!--Aqui se incluye el menu lateral-->
+      {% include "menu_lateral.html" %}
+{% endblock %}
+
+{% block tituloCabecera %}
+    <!--Aqui se incluye el menu lateral-->
+    Inicio
+{% endblock %}
+
+{% block cajaResultados %}
+            
+        <!-- CAJAS DE COLORES -->
+        <div class="row">
+
+            <!--Aqui se incluye ka caja de resultados-->
+
+            <div class="col-lg-4 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-success">
+                    <div class="inner">
+                      <h3>PAGADO</h3>
+      
+                      <p>{{pagado}} CLP</p>
+      
+                      <p>TANTOS PAGOS RECIBIDOS</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+            </div>
+
+          
+
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-white">
+              <div class="inner">
+                <h3>POR VENCER</h3>
+
+                <p>{{por_vencer}} CLP</p>
+
+                <p>{{facturas_por_vencer}} facturas por vencer</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-document"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <!-- ./col -->
+          <div class="col-lg-4 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>VENCIDO</h3>
+
+                <p>{{vencido}} CLP</p>
+
+                <p>{{facturas_vencidas}} facturas VENCIDAS</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Más informacián <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.row -->
+          
+          {% endblock %}
